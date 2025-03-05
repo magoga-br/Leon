@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../css/gameStyle.css">
+    <title>A Game</title>
+</head>
+<body>
+    <h1 id="txt">A Chat website</h1>
+
+    <div class="botoes">
+
+        <div class="botao">
+            <a href="website/chat.html">
+                <button id="games">Chat</button>
+            </a>
+        </div>
+        
+    </div>
+
+    <hr>
+    
+    <div id="buttons">
+
+        <div class="botao">
+            <a href="../../index.html">
+                <button id="MainMenu">Omnisite</button>
+            </a>
+        </div>
+
+        <button id="change" onclick="change()"> Change to Dark mode</button>
+    </div>
+    <script>
+
+        // Verifica a preferência do tema no localStorage ao carregar a página
+            const savedTheme = localStorage.getItem('theme');
+            const body = document.body;
+    
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                document.getElementById("change").textContent = "Change to White Mode";
+            }
+    
+            function change() {
+                // Alterna entre os temas
+                const isDarkMode = body.classList.toggle('dark-mode');
+                
+                // Atualiza o texto do botão
+                document.getElementById("change").textContent = isDarkMode ? "Change to White Mode" : "Change to Dark Mode";
+    
+                // Salva a preferência no localStorage
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            }
+    </script>
+</body>
+</html>
