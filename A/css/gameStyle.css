@@ -75,9 +75,11 @@ hr {
 
 body.dark-mode hr { border-color: #e4dccf; }
 
-#change, #restart { width: 250px; }
+#change{ width: 250px; }
+
 
 #restart {
+    width: 100px;
     display: none;
     background-color: transparent;
     border: 2px solid;
