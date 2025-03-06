@@ -63,6 +63,11 @@ body.dark-mode button {
     border-color: #e4dccf;
 }
 
+body.dark-mode #restart{
+    border-color: #585153;
+    color: #585153;
+}
+
 body.dark-mode button:hover {
     background-color: #474344;
 }
@@ -110,7 +115,7 @@ canvas {
     background-size: cover;
 }
 
-body.dark-mode canvas { border-color: #e4dccf; }
+body.dark-mode canvas { border-color: #585153; }
 
 #up, p, #footer, #restart, #menu, #points { display: none; }
 
