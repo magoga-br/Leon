@@ -216,7 +216,7 @@ function controlGame(e) {
         if (document.getElementById("restart").style.display === "flex") {
             restart();
         } else {
-            accelerate(-0.4);
+            accelerate(-0.2);
         }
     }
 }
