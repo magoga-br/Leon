@@ -69,7 +69,7 @@ function startGame() {
     document.getElementById('p').style.display = 'block';
     document.getElementById("btngames").style.display = "none";
     document.getElementById("botoes").style.flexDirection = "row";
-
+    document.getElementById("mobileControls").classList.add("visible"); 
     // Focar no canvas automaticamente
     canvas.focus();
 

@@ -50,10 +50,8 @@ function startGame() {
     document.addEventListener("keyup", stopGame);
     document.getElementById("square").style.display = "none";
     document.getElementById("botoes").style.flexDirection = "row";
-    
     // faz o botao up aparecer para dispositivos movéis
-    var upButton = document.getElementById("up");
-    upButton.classList.add("visible"); 
+    document.getElementById("up").classList.add("visible");
 }
 
 function restart() {
@@ -216,7 +214,7 @@ function controlGame(e) {
         if (document.getElementById("restart").style.display === "flex") {
             restart();
         } else {
-            accelerate(-0.2);
+            accelerate(-0.4);
         }
     }
 }
@@ -226,4 +224,3 @@ function stopGame(e) {
         accelerate(0.20);
     }
 }
-

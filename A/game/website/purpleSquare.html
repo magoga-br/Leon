@@ -58,18 +58,25 @@
 
     <!-- Botões de Controle para Dispositivos Móveis -->
     <div id="mobileControls" class="mobile-controls">
-        <div class="control-row">
-            <button id="btnRight" class="control-btn">▶</button>
-            <button id="btnUp" class="control-btn">▲</button>
+        <div id="left">
+            <div class="control-row">
+                <button id="btnUp" class="control-btn">▲</button>
+            </div>
+            <div class="control-row">
+                <button id="btnLeft" class="control-btn">◀</button>
+                <button id="btnRight" class="control-btn">▶</button>
+            </div>
+            <div class="control-row">
+                <button id="btnDown" class="control-btn">▼</button>
+            </div>
         </div>
-        <div class="control-row">
-            <button id="btnLeft" class="control-btn">◀</button>
-            <button id="btnDown" class="control-btn">▼</button>
-        </div>
-        <div class="transform-row">
-            <button id="btnJ" class="control-btn">|</button>
-            <button id="btnK" class="control-btn">🟪</button>
-            <button id="btnL" class="control-btn">-</button>
+
+        <div id="right">
+            <div class="transform-row">
+                <button id="btnJ" class="control-btn">|</button>
+                <button id="btnK" class="control-btn">🟪</button>
+                <button id="btnL" class="control-btn">-</button>
+            </div>
         </div>
     </div>
 
@@ -80,7 +87,7 @@
     </div>
     
     <div id="footer" class="footer">
-        <p id="p">Use arrow keys or WASD to move. J, K or L keys to transform. Hold Shift to slow down.</p>
+        <p id="p">Use arrow keys or WASD to move. J, K or L keys to transform. Hold Shift to slow down. Hold Ctrl to speed up. Press R to go to the initial position. Press Space to restart. Press Esc to exit.</p>
     </div>
 
     <script src="/A/scripts/purpleSquareScript.js"></script>
