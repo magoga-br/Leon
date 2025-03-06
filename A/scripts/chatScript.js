@@ -47,10 +47,12 @@
                 const time = now.toLocaleTimeString([], timeOptions);
 
                 messageElement.innerHTML = `
-                <div id="mensagem">
-                    <div class="name">Fabrício</div>
-                    <div class="text">${message}</div>
-                    <div class="date">${time}</div>
+                <div id="container">    
+                    <div id="mensagem">
+                        <div class="name"><span>Fabrício</span></div>
+                        <div class="text"><span>${message}</span></div>
+                        <div class="date"><span>${time}</span></div>
+                    </div>
                 </div>
                 `;
                 chatContainer.appendChild(messageElement);
