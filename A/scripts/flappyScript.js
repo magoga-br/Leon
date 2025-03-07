@@ -218,7 +218,16 @@ function controlGame(e) {
         }
     }
 }
-
+function controlUp(){
+    if (document.getElementById("restart").style.display === "flex") {
+        restart();
+    } else {
+        ontouchstart = function() { accelerate(-0.4); };
+        ontouchend = function() { accelerate(0.20); };
+        onmousedown = function() { accelerate(-0.4); };
+        onmouseup = function() { accelerate(0.20); };
+    }
+}
 function stopGame(e) {
     if (e.key === " " || e.key === "ArrowUp" || e.key === "w") {
         accelerate(0.20);

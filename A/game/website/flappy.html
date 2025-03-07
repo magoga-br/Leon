@@ -74,13 +74,9 @@
     
 <script src="/A/scripts/flappyScript.js"></script>
 <br>
-<button id="up" 
-    onmousedown="accelerate(-0.4)" 
-    onmouseup="accelerate(0.20)" 
-    ontouchstart="accelerate(-0.4); event.preventDefault();" 
-    ontouchend="accelerate(0.20); event.preventDefault();">
-    Tap to play
-</button>
+    <button id="up" onclick="controlUp()">
+        Tap to play
+    </button>
     <div class="footer">
         <p id="p">Use the keys: [Space], [↑] or [W] to play.</p>
     </div>
