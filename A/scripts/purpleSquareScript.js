@@ -5,48 +5,77 @@ let score = 0;
 let square = {
     x: 230, // pos x inicial
     y: 69, // pos y inicial
-    width: 40,  // Largura inicial
-    height: 40, // Altura inicial
-    speed: 5, // Velocidade inicial
+    width: 40, // largura inicial
+    height: 40, // altura inicial
+    speed: 5, // velocidade inicial
 };
 let keys = {};
 
-// Definir salas
+// Definir salas com conexões
 const salas = [
+    // Sala 0 (Inicial)
     {
         walls: [
-            // Sala 1
-            { x: 0, y: 0, width: 150, height: 200 }, // Topo Esquerdo
-            { x: canvas.width - 150, y: 0, width: 150, height: 150 }, // Topo Direito
-            { x: 0, y: canvas.height - 150, width: 150, height: 150 }, // Baixo Esquerdo
-            { x: canvas.width - 150, y: canvas.height - 0, width: 150, height: 0 }, // Baixo Direito
+            // Paredes com aberturas nas direções das saídas
+            { x: 0, y: 0, width: 50, height: 150 }, // Parede esquerda (topo)
+            { x: 0, y: canvas.height - 150, width: 50, height: 150 }, // Parede esquerda (base)
+            { x: canvas.width - 50, y: 0, width: 50, height: 150 }, // Parede direita (topo)
+            { x: canvas.width - 50, y: canvas.height - 150, width: 50, height: 150 }, // Parede direita (base)
+            { x: 0, y: 0, width: 150, height: 50 }, // Parede superior (esquerda)
+            { x: canvas.width - 150, y: 0, width: 150, height: 50 }, // Parede superior (direita)
+            { x: 0, y: canvas.height - 50, width: 150, height: 50 }, // Parede inferior (esquerda)
+            { x: canvas.width - 150, y: canvas.height - 50, width: 150, height: 50 }, // Parede inferior (direita)
         ],
         itens: [
             { x: 100, y: 100, width: 20, height: 20, color: 'red', collected: false },
-            { x: 300, y: 300, width: 20, height: 20, color: 'blue', collected: false },
         ],
+        left: null, // Nenhuma sala à esquerda
+        right: 1, // Sala 1 à direita
+        up: 2, // Sala 2 acima
+        down: 3, // Sala 3 abaixo
     },
+    // Sala 1 (Direita da Inicial)
     {
         walls: [
-            // Sala 2
-            { x: 0, y: 0, width: 200, height: 100 }, // Parede superior
-            { x: canvas.width - 200, y: canvas.height - 100, width: 200, height: 100 }, // Parede inferior direita
+            { x: 0, y: 0, width: 50, height: 150 }, // Parede esquerda (topo)
+            { x: 0, y: canvas.height - 150, width: 50, height: 150 }, // Parede esquerda (base)
+            // Outras paredes...
+        ],
+        itens: [
+            { x: 300, y: 300, width: 20, height: 20, color: 'blue', collected: false },
+        ],
+        left: 0, // Volta para Sala 0
+        right: null, // Nenhuma sala à direita
+        up: 4, // Sala 4 acima
+        down: 5, // Sala 5 abaixo
+    },
+    // Sala 2 (Acima da Inicial)
+    {
+        walls: [
+            // Paredes...
         ],
         itens: [
             { x: 200, y: 200, width: 20, height: 20, color: 'green', collected: false },
-            { x: 400, y: 400, width: 20, height: 20, color: 'yellow', collected: false },
         ],
+        left: 6, // Sala 6 à esquerda
+        right: 7, // Sala 7 à direita
+        up: null, // Nenhuma sala acima
+        down: 0, // Volta para Sala 0
     },
+    // Sala 3 (Abaixo da Inicial)
     {
         walls: [
-            // Sala 3
-            { x: 0, y: 0, width: 100, height: canvas.height }, // Parede esquerda
-            { x: canvas.width - 100, y: 0, width: 100, height: canvas.height }, // Parede direita
+            // Paredes...
         ],
         itens: [
-            { x: 250, y: 250, width: 20, height: 20, color: 'purple', collected: false },
+            { x: 400, y: 400, width: 20, height: 20, color: 'yellow', collected: false },
         ],
+        left: 8, // Sala 8 à esquerda
+        right: 9, // Sala 9 à direita
+        up: 0, // Volta para Sala 0
+        down: null, // Nenhuma sala abaixo
     },
+    // Adicione mais salas conforme necessário...
 ];
 
 let salaAtual = 0; // Índice da sala atual
@@ -72,7 +101,7 @@ function changeTheme() {
 // Load saved theme
 (() => {
     const savedTheme = localStorage.getItem('theme');
-    if(savedTheme === 'dark') {
+    if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         document.getElementById('change').textContent = 'Change to Light Mode';
     }
@@ -90,7 +119,7 @@ function startGame() {
     document.getElementById('p').style.display = 'block';
     document.getElementById("btngames").style.display = "none";
     document.getElementById("botoes").style.flexDirection = "row";
-    document.getElementById("mobileControls").classList.add("visible"); 
+    document.getElementById("mobileControls").classList.add("visible");
     // Focar no canvas automaticamente
     canvas.focus();
 
@@ -103,36 +132,41 @@ function verificarTransicao() {
     const limiteDireito = canvas.width;
     const limiteInferior = canvas.height;
 
-    // Verificar se o jogador ultrapassou os limites do mapa
+    // Verificar transições
     if (square.x < limiteEsquerdo) {
-        // Transição para a sala à esquerda
-        carregarSala(salaAtual - 1);
-        square.x = limiteDireito - square.width; // Reposicionar o jogador no lado direito
+        const target = salas[salaAtual].left;
+        if (target !== null && target !== undefined) {
+            carregarSala(target);
+            square.x = limiteDireito - square.width; // Aparece à direita
+        }
     } else if (square.x + square.width > limiteDireito) {
-        // Transição para a sala à direita
-        carregarSala(salaAtual + 1);
-        square.x = limiteEsquerdo; // Reposicionar o jogador no lado esquerdo
+        const target = salas[salaAtual].right;
+        if (target !== null && target !== undefined) {
+            carregarSala(target);
+            square.x = limiteEsquerdo; // Aparece à esquerda
+        }
     }
 
     if (square.y < limiteSuperior) {
-        // Transição para a sala acima
-        carregarSala(salaAtual - 1);
-        square.y = limiteInferior - square.height; // Reposicionar o jogador na parte inferior
+        const target = salas[salaAtual].up;
+        if (target !== null && target !== undefined) {
+            carregarSala(target);
+            square.y = limiteInferior - square.height; // Aparece abaixo
+        }
     } else if (square.y + square.height > limiteInferior) {
-        // Transição para a sala abaixo
-        carregarSala(salaAtual + 1);
-        square.y = limiteSuperior; // Reposicionar o jogador na parte superior
+        const target = salas[salaAtual].down;
+        if (target !== null && target !== undefined) {
+            carregarSala(target);
+            square.y = limiteSuperior; // Aparece acima
+        }
     }
 }
 
 function carregarSala(novaSala) {
-    // Verificar se a nova sala existe
     if (novaSala >= 0 && novaSala < salas.length) {
         salaAtual = novaSala;
         walls = salas[salaAtual].walls;
         itens = salas[salaAtual].itens;
-    } else {
-        console.log("Não há mais salas nesta direção.");
     }
 }
 
@@ -269,7 +303,7 @@ canvas.addEventListener('keyup', (e) => {
 
 // Prevent arrow key scrolling
 window.addEventListener('keydown', (e) => {
-    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         e.preventDefault();
     }
 });
