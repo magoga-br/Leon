@@ -131,7 +131,7 @@ function startGame() {
     document.getElementById('hr').style.display = 'none';
     document.getElementById('menu').style.display = 'block';
     document.getElementById('footer').style.display = 'block';
-    document.getElementById('p').style.display = 'block';
+    document.getElementById('pp').style.display = 'block';
     document.getElementById("btngames").style.display = "none";
     document.getElementById("botoes").style.flexDirection = "row";
     document.getElementById("mobileControls").classList.add("visible");
