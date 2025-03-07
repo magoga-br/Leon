@@ -29,30 +29,30 @@ const salas = [
         itens: [
             { x: 100, y: 100, width: 20, height: 20, color: 'red', collected: false },
         ],
-        left: null, // Nenhuma sala à esquerda
-        right: 1, // Sala 1 à direita
-        up: 2, // Sala 2 acima
-        down: 3, // Sala 3 abaixo
+        left: 1, // Sala 1 à esquerda
+        up: 2, // Sala 2 à direita
+        right: 3, // Sala 3 acima
+        down: 4, // Sala 4 abaixo
     },
-    // Sala 1 (Direita da Inicial)
+    // Sala 1 (Esquerda da Inicial)
     {
         walls: [
-            { x: 0, y: 0, width: 50, height: 150 }, // Parede esquerda (topo)
-            { x: 0, y: canvas.height - 150, width: 50, height: 150 }, // Parede esquerda (base)
-            // Outras paredes...
+            { x: canvas.width - 50, y: 0, width: 50, height: 150 }, // Parede esquerda (topo)
+            { x: canvas.width - 50, y: canvas.height - 150, width: 50, height: 150 }, // Parede esquerda (base)
         ],
         itens: [
             { x: 300, y: 300, width: 20, height: 20, color: 'blue', collected: false },
         ],
-        left: 0, // Volta para Sala 0
-        right: null, // Nenhuma sala à direita
-        up: 4, // Sala 4 acima
-        down: 5, // Sala 5 abaixo
+        left: null, 
+        right: 0, // sala inicial à direita
+        up: 1, // futura sala de canto
+        down: 1, // futura sala de canto
     },
     // Sala 2 (Acima da Inicial)
     {
         walls: [
-            // Paredes...
+            { x: canvas.width - 150, y: canvas.height - 50, width: 150, height: 50 }, // Parede esquerda (topo)
+            { x: 0, y: canvas.height - 50, width: 150, height: 150 }, // Parede esquerda (base)
         ],
         itens: [
             { x: 200, y: 200, width: 20, height: 20, color: 'green', collected: false },
@@ -62,18 +62,33 @@ const salas = [
         up: null, // Nenhuma sala acima
         down: 0, // Volta para Sala 0
     },
-    // Sala 3 (Abaixo da Inicial)
+    // Sala 3 (Direita da Inicial)
     {
         walls: [
-            // Paredes...
+            { x: 0, y: 0, width: 50, height: 150 }, // Parede superior (esquerda)
+            { x: 0, y: canvas.height - 150, width:50, height: 150 }, // Parede superior (direita)
         ],
         itens: [
             { x: 400, y: 400, width: 20, height: 20, color: 'yellow', collected: false },
         ],
-        left: 8, // Sala 8 à esquerda
-        right: 9, // Sala 9 à direita
-        up: 0, // Volta para Sala 0
-        down: null, // Nenhuma sala abaixo
+        left: 0, // Sala 8 à esquerda
+        right: null, 
+        up: 3, // futura sala de canto
+        down: 3, // futura sala de canto
+    },
+    // Sala 4 (Abaixo da inicial)
+    {
+        walls: [
+            { x: 0, y: 0, width: 150, height: 50 }, // Parede superior (esquerda)
+            { x: canvas.height - 150, y: 0, width:150, height: 50 }, // Parede superior (direita)
+        ],
+        itens: [
+            { x: 400, y: 400, width: 20, height: 20, color: 'pink', collected: false },
+        ],
+        left: 4, // futura sala de canto
+        right: 4, 
+        up: 0, // inicial
+        down: null, // futura sala de canto
     },
     // Adicione mais salas conforme necessário...
 ];
@@ -120,6 +135,7 @@ function startGame() {
     document.getElementById("btngames").style.display = "none";
     document.getElementById("botoes").style.flexDirection = "row";
     document.getElementById("mobileControls").classList.add("visible");
+    document.getElementById("pointsPurpleSquare").style.display = 'flex'
     // Focar no canvas automaticamente
     canvas.focus();
 

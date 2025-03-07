@@ -121,7 +121,7 @@ canvas {
 
 body.dark-mode canvas { border-color: #585153; }
 
-#up, p, #footer, #restart, #menu, #points { display: none; }
+#up, p, #footer, #restart, #menu, #points, #pointsPurpleSquare { display: none; }
 
 #up:hover {
     transform: none;
@@ -131,8 +131,9 @@ body.dark-mode canvas { border-color: #585153; }
 body.dark-mode #up:hover { background-color: #585153; }
 
 #center {
+    width: 100%;
     position: absolute;
-    top: 50%;
+    top: 2%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -144,6 +145,16 @@ body.dark-mode #up:hover { background-color: #585153; }
     justify-content: center;
     color: darkorange;
     font-size: 20px;
+    font-weight: bold;
+}
+
+#pointsPurpleSquare {
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: darkorange;
+    font-size: 15px;
     font-weight: bold;
 }
 
