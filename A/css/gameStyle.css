@@ -132,8 +132,9 @@ body.dark-mode canvas { border-color: #585153; }
 body.dark-mode #up:hover { background-color: #585153; }
 
 #center {
+    position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
 }
 
 #centerPurpleSquare{
