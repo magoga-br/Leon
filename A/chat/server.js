@@ -5,7 +5,9 @@ const io = require('socket.io')(http);
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'website')));
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'website', 'chat.html'));
+});
 const users = {};
 
 io.on('connection', (socket) => {
