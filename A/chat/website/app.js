@@ -1,4 +1,4 @@
-const socket = io("https://omnisite.vercel.app/A/chat/website/chat.html");
+const socket = io("https://omnisite.onrender.com");
 let username;
 
 socket.on('connect', () => {
