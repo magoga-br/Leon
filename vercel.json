@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/profile", "destination": "/pages/profile/profile.html" },
+    { "source": "/music", "destination": "/pages/music/music.html" },
+    { "source": "/chat", "destination": "/pages/chat/chat.html" },
+    { "source": "/games", "destination": "/pages/games/games.html" },
+    { "source": "/(css|fonts|js)/(.*)", "destination": "/css/$2" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
