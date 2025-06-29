@@ -1,0 +1,34 @@
+@import url('global.css');
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.archive-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--branco);
+    cursor: pointer;
+}

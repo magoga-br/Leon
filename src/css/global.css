@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Monocraft';
+    src: url('../fonts/Monocraft.ttf') format('truetype');
+    src: url('../fonts/Monocraft.otf') format('opentype');
+}
+
+:root{
+    --font-primary: 'Monocraft';
+    --background-color: #171717;
+    --cor-secundaria: #212121;
+    --branco: #FFFCE1;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: var(--font-primary);
+    color: var(--branco);
+}
+
+.navbar{
+    height: 75px;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: var(--branco);
+}
+
+.brand-container{
+    display: flex;
+    align-items: center;
+}
+
+.profile-container{
+    background-color: var(--cor-secundaria);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer{
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+}
