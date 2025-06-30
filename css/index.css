@@ -1,15 +1,21 @@
-@import url('global.css');
+@import url("global.css");
 
+.card {
+  background-color: var(--cor-secundaria);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
 
-.card{
-    background-color: var(--cor-secundaria);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 10px;
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    opacity: 0.8;
+  }
 }
 
-.card-body{
-    background-color: var(--cor-secundaria);
-    color: var(--branco);
+.card-body {
+  background-color: var(--cor-secundaria);
+  color: var(--branco);
 }
