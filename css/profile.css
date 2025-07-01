@@ -11,12 +11,8 @@
 .photo-container {
   display: flex;
   align-items: center;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: all 0.2s ease-in-out;
-    opacity: 0.8;
-  }
+  justify-content: center;
+  position: relative;
 
   label {
     border-radius: 50%;
@@ -25,9 +21,15 @@
     display: block;
   }
 
+  label:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+    opacity: 0.8;
+  }
+
   img {
     border: solid 1px var(--branco);
-    width: 100px;
+    width: 200px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -47,32 +49,11 @@
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   label:hover .edit-photo-overlay {
     opacity: 1;
-  }
-}
-
-.btn-edit-profile {
-  background-color: var(--cor-secundaria);
-  color: var(--branco);
-  border: solid 1px var(--branco);
-  padding: 0.25rem 0.75rem;
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.2);
-    background-color: var(--branco);
-    color: var(--background-color);
-  }
-
-  &.btn-sm:active {
-    background-color: var(--branco);
-    color: var(--background-color);
-    transform: scale(1.15);
   }
 }
 
