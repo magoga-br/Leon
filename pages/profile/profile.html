@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <title>Leon - Profile</title>
 </head>
 
@@ -34,17 +34,17 @@
     <main>
         <div class="container-lg mt-5">
             <div class="row justify-content-center">
-
                 <div class="col-md-3 mt-5 mb-5">
                     <div class="card d-flex flex-column">
                         <div class="photo-container">
                             <label for="photo-upload">
-                                <img src="https://i.pravatar.cc/150" alt="avatar" class="rounded-circle img-fluid">
+                                <img src="https://i.pravatar.cc/150" alt="avatar" class="rounded-circle img-fluid"
+                                    id="profile-image" />
                                 <div class="edit-photo-overlay">
                                     <i class="bi bi-pencil-fill"></i>
                                 </div>
                             </label>
-                            <input type="file" id="photo-upload" accept="image/*" class="d-none" hidden>
+                            <input type="file" id="photo-upload" accept="image/*" class="d-none" hidden />
                         </div>
 
                         <div class="card-body">
@@ -55,15 +55,14 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <a href="/music/discover">
-                        <div class="card d-flex flex-column-reverse">
+                    <a href="/profile/edit">
+                        <div class="card card-profile-edit d-flex flex-column-reverse">
                             <div>
-                                <img src="https://cdn.pixabay.com/photo/2017/09/02/18/56/singer-2708206_1280.jpg"
-                                    class="card-img" alt="Singer performing on a stage with purple lights.">
+                                <img src="/assets/images/tools.png" class="card-img" alt="" />
                             </div>
                             <div class="card-body">
-                                <h5 class="card-text">Discover New Artists</h5>
-                                <p class="card-text">Explore the charts and find your next favorite band.</p>
+                                <h5 class="card-text">Edit</h5>
+                                <p class="card-text">Make your profile your own</p>
                             </div>
                         </div>
                     </a>
@@ -74,11 +73,13 @@
                         <div class="card d-flex flex-row-reverse">
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2024/02/26/19/51/guitar-8598823_1280.jpg"
-                                    class="card-img" alt="Hand of a person playing an acoustic guitar.">
+                                    class="card-img" alt="Hand of a person playing an acoustic guitar." />
                             </div>
                             <div class="card-body">
-                                <h5 class="card-text">Publish Your New Track</h5>
-                                <p class="card-text">Show your talent to the world. Click to upload.</p>
+                                <h5 class="card-text">Music Stats</h5>
+                                <p class="card-text">
+                                    See your info from Social Music
+                                </p>
                             </div>
                         </div>
                     </a>
@@ -89,11 +90,13 @@
                         <div class="card d-flex flex-column-reverse">
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2017/06/28/04/49/music-2449749_1280.jpg"
-                                    class="card-img" alt="Sound mixing board with headphones on top.">
+                                    class="card-img" alt="Sound mixing board with headphones on top." />
                             </div>
                             <div class="card-body">
-                                <h5 class="card-text">Find Collaborators</h5>
-                                <p class="card-text">Connect with other musicians to create something new.</p>
+                                <h5 class="card-text">Game Stats</h5>
+                                <p class="card-text">
+                                    See your info from Games
+                                </p>
                             </div>
                         </div>
                     </a>
@@ -103,11 +106,13 @@
                         <div class="card d-flex flex-row-reverse">
                             <div>
                                 <img src="https://cdn.pixabay.com/photo/2015/09/09/17/42/concert-932098_1280.jpg"
-                                    class="card-img" alt="Crowd at a concert with colorful lights on stage.">
+                                    class="card-img" alt="Crowd at a concert with colorful lights on stage." />
                             </div>
                             <div class="card-body">
-                                <h5 class="card-text">Events and Shows</h5>
-                                <p class="card-text">Discover shows from independent artists near you.</p>
+                                <h5 class="card-text">Chat Stats</h5>
+                                <p class="card-text">
+                                    See your info from Chat
+                                </p>
                             </div>
                         </div>
                     </a>
@@ -117,14 +122,13 @@
     </main>
     <footer class="footer mt-auto py-3">
         <div class="container">
-            <span>
-                &copy; 2025 magoga-br. All rights reserved.
-            </span>
+            <span> &copy; 2025 magoga-br. All rights reserved. </span>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
+    <script src="/js/profile.js"></script>
 </body>
 
 </html>

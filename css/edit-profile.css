@@ -1,0 +1,36 @@
+@import url("/css/global.css");
+
+
+.card-title{
+    color: var(--branco);
+}
+
+/* Style form elements for the dark theme */
+.edit-profile-form .form-control,
+.edit-profile-form .form-control:focus {
+  background-color: #2d2d2d;
+  color: var(--branco);
+  border: 1px solid #444;
+  box-shadow: none;
+  /* Remove default focus shadow */
+}
+
+.edit-profile-form .form-control::placeholder {
+  color: var(--muted);
+}
+
+.edit-profile-form .input-group-text {
+  background-color: #333;
+  border: 1px solid #444;
+  color: var(--muted);
+}
+
+.edit-profile-form .form-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.btn-save-changes{
+  background-color: var(--branco);
+  color: var(--background-color);
+};
