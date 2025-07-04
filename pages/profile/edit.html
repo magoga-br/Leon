@@ -19,8 +19,8 @@
                 <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
                     <div class="container-fluid justify-content-between align-items-center ms-2 me-2">
                         <div class="brand-container">
-                            <a href="profile.html" class="navbar-brand" aria-label="Back to profile page"><- </a>
-                                    <a href="edit-profile.html" class="navbar-brand">Edit Profile</a>
+                            <a href="profile.html" class="navbar-brand" aria-label="Back to profile page">&larr;</a>
+                            <a href="edit.html" class="navbar-brand">Edit Profile</a>
                         </div>
                         <a href="profile.html">
                             <div class="profile">
@@ -36,6 +36,7 @@
         <div class="container-lg mt-5 pt-5 mb-5">
             <div class="row justify-content-center ">
                 <div class="col-12">
+
                     <form class="edit-profile-form">
                         <div class="row">
                             <div class="col-md-3 mt-5 mb-5">
@@ -61,21 +62,36 @@
                             <div class="col-md-5 mb-3">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h5 class="card-title">Your Security</h5>
+                                        <h5 class="card-title">
+                                            <i class="bi bi-shield-check me-2"></i>Your Security
+                                        </h5>
                                         <p class="card-text">Update your email and password</p>
                                         <div class="mb-3 mt-3">
                                             <label for="inputEmail" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="inputEmail">
+                                            <input type="email" class="form-control" id="inputEmail">
                                         </div>
                                         <div class="mb-3">
                                             <label for="inputPassword" class="form-label">Password</label>
-                                            <input type="text" class="form-control" id="inputPassword"
-                                                aria-describedby="password-addon">
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="inputPassword"
+                                                    aria-describedby="password-addon">
+                                                <button class="btn btn-outline-secondary" type="button"
+                                                    id="togglePassword">
+                                                    <i class="bi bi-eye" id="passwordIcon"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="inputPassword" class="form-label">Confirm Password</label>
-                                            <input type="text" class="form-control" id="inputPassword"
-                                                aria-describedby="password-addon">
+                                            <label for="inputConfirmPassword" class="form-label">New
+                                                Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="inputConfirmPassword"
+                                                    aria-describedby="password-addon">
+                                                <button class="btn btn-outline-secondary" type="button"
+                                                    id="toggleConfirmPassword">
+                                                    <i class="bi bi-eye" id="confirmPasswordIcon"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +100,9 @@
                             <div class="col-md-4 mb-5 mt-3">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h5 class="card-title">Your Details</h5>
+                                        <h5 class="card-title">
+                                            <i class="bi bi-person-lines-fill me-2"></i>Your Details
+                                        </h5>
                                         <p class="card-text">Update your name and username</p>
                                         <div class="mb-3 mt-3">
                                             <label for="inputName" class="form-label">Name</label>
@@ -101,36 +119,24 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-6 mb-4 mt-3 ms-5 me-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Biography</h5>
-                                        <p class="card-text">Tell everyone a little about yourself</p>
-                                        <div class="mt-3">
-                                            <label for="inputBio" class="form-label">Bio</label>
-                                            <textarea class="form-control" id="inputBio" rows="4"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card h-100">
-                                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                                        <h5 class="card-title">Save Your Work</h5>
-                                        <p class="card-text">Ready to go?</p>
-                                        <div class="mt-3 w-100 d-grid gap-2">
-                                            <button type="submit" class="btn btn-save-changes btn-light btn-lg">Save
-                                                Changes</button>
-                                            <a href="/profile" class="btn btn-secondary">Cancel</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 </div>
+
+                <div class="col-md-4 mb-4 mt-2">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <h5 class="card-title">Save Your Work</h5>
+                            <p class="card-text">Ready to go?</p>
+                            <div class="mt-3 w-100 d-grid gap-2">
+                                <button type="submit" class="btn btn-save-changes btn-light btn-lg">Save
+                                    Changes</button>
+                                <a href="profile.html" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
@@ -143,6 +149,35 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script src="/js/profile.js"></script>
+    <script>
+        // Toggle Password Visibility
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('inputPassword');
+            const passwordIcon = document.getElementById('passwordIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.className = 'bi bi-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.className = 'bi bi-eye';
+            }
+        });
+
+        // Toggle Confirm Password Visibility
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+            const confirmPasswordInput = document.getElementById('inputConfirmPassword');
+            const confirmPasswordIcon = document.getElementById('confirmPasswordIcon');
+
+            if (confirmPasswordInput.type === 'password') {
+                confirmPasswordInput.type = 'text';
+                confirmPasswordIcon.className = 'bi bi-eye-slash';
+            } else {
+                confirmPasswordInput.type = 'password';
+                confirmPasswordIcon.className = 'bi bi-eye';
+            }
+        });
+    </script>
 </body>
 
 </html>
