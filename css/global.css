@@ -199,6 +199,11 @@
   --btn-secondary-text: #4ea8de;
   --btn-secondary-hover-bg: rgba(78, 168, 222, 0.25);
   --btn-secondary-hover-text: #4ea8de;
+  
+  /* Card Header Colors - Section headers */
+  --card-header-bg: rgba(78, 168, 222, 0.1);
+  --card-header-text: #e1e6f0;
+  --card-header-text-muted: #a8b2c8;
 }
 
 /* Light Purple Theme */
@@ -277,6 +282,11 @@
   --btn-secondary-text: #4ade80;
   --btn-secondary-hover-bg: rgba(74, 222, 128, 0.25);
   --btn-secondary-hover-text: #4ade80;
+  
+  /* Card Header Colors - Section headers */
+  --card-header-bg: rgba(74, 222, 128, 0.1);
+  --card-header-text: #e6f2e6;
+  --card-header-text-muted: #b8d4b8;
 }
 
 /* Light Orange Theme */
@@ -355,6 +365,11 @@
   --btn-secondary-text: #ef4444;
   --btn-secondary-hover-bg: rgba(239, 68, 68, 0.25);
   --btn-secondary-hover-text: #ef4444;
+  
+  /* Card Header Colors - Section headers */
+  --card-header-bg: rgba(239, 68, 68, 0.1);
+  --card-header-text: #f2e6e6;
+  --card-header-text-muted: #d4b8b8;
 }
 
 /* Light Teal Theme */
