@@ -24,6 +24,7 @@
   --bg-color: #f6f6f8;                    /* Main background */
   --sidebar-bg: #edeef2;                  /* Sidebar background */
   --card-bg: #ffffff;                     /* Card backgrounds */
+  --card-hover-bg: #f8f9fa;              /* Card hover background */
   
   /* Text Colors - Hierarchy */
   --text-primary: #202020;                /* Primary text */
@@ -107,6 +108,7 @@
   --bg-color: #252525;                    /* Main background */
   --sidebar-bg: #2d2d2d;                  /* Sidebar background */
   --card-bg: #303030;                     /* Card backgrounds */
+  --card-hover-bg: #383838;              /* Card hover background */
   
   /* Text Colors - Hierarchy */
   --text-primary: #e5e5e5;                /* Primary text */
@@ -115,6 +117,7 @@
   
   /* Accent Colors - Highlights */
   --accent-color: #888888;                /* Neutral light gray accent for numbers/highlights */
+  --accent-color-rgb: 136, 136, 136;      /* RGB values for accent color */
   
   /* Border Colors - Dividers */
   --border-color: rgba(255, 255, 255, 0.1); /* General borders */
@@ -171,6 +174,7 @@
   --bg-color: #1a1d29;
   --sidebar-bg: #1e2330;
   --card-bg: #252b3d;
+  --card-hover-bg: #2a3142;
   
   /* Text Colors */
   --text-primary: #e1e6f0;
@@ -179,6 +183,7 @@
   
   /* Accent Colors */
   --accent-color: #4ea8de;
+  --accent-color-rgb: 78, 168, 222;       /* RGB values for accent color */
   
   /* Border Colors */
   --border-color: rgba(78, 168, 222, 0.2);
@@ -215,6 +220,7 @@
   --bg-color: #faf9ff;
   --sidebar-bg: #f5f3ff;
   --card-bg: #ffffff;
+  --card-hover-bg: #f8f7ff;
   
   /* Text Colors */
   --text-primary: #374151;
@@ -254,6 +260,7 @@
   --bg-color: #1a2e1a;
   --sidebar-bg: #1f3a1f;
   --card-bg: #254725;
+  --card-hover-bg: #2d5a2d;
   
   /* Text Colors */
   --text-primary: #e6f2e6;
@@ -262,6 +269,7 @@
   
   /* Accent Colors */
   --accent-color: #4ade80;
+  --accent-color-rgb: 74, 222, 128;       /* RGB values for accent color */
   
   /* Border Colors */
   --border-color: rgba(74, 222, 128, 0.2);
@@ -298,6 +306,7 @@
   --bg-color: #fffaf0;
   --sidebar-bg: #fef7ed;
   --card-bg: #ffffff;
+  --card-hover-bg: #fef5ed;
   
   /* Text Colors */
   --text-primary: #431407;
@@ -337,6 +346,7 @@
   --bg-color: #2d1b1b;
   --sidebar-bg: #3d2020;
   --card-bg: #4a2626;
+  --card-hover-bg: #5a2e2e;
   
   /* Text Colors */
   --text-primary: #f2e6e6;
@@ -345,6 +355,7 @@
   
   /* Accent Colors */
   --accent-color: #ef4444;
+  --accent-color-rgb: 239, 68, 68;        /* RGB values for accent color */
   
   /* Border Colors */
   --border-color: rgba(239, 68, 68, 0.2);
@@ -381,6 +392,7 @@
   --bg-color: #f0fdfa;
   --sidebar-bg: #ecfdf5;
   --card-bg: #ffffff;
+  --card-hover-bg: #f0fdf4;
   
   /* Text Colors */
   --text-primary: #134e4a;

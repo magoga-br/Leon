@@ -313,8 +313,26 @@
 
 .btn-outline-secondary:hover {
   color: var(--text-primary);
-  background-color: var(--hover-bg);
+  background-color: var(--btn-sidebar-hover-bg);
   border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary:active,
+.btn-outline-secondary.active {
+  color: var(--text-primary);
+  background-color: var(--btn-sidebar-hover-bg);
+  border-color: var(--accent-color);
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary:focus {
+  color: var(--text-primary);
+  background-color: var(--btn-sidebar-hover-bg);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(var(--accent-color-rgb), 0.25);
 }
 
 /* Responsive Design */
@@ -423,6 +441,11 @@
   margin-top: 1.5rem;
 }
 
+.social-login-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
 .divider {
   position: relative;
   text-align: center;
@@ -439,11 +462,13 @@
   background-color: var(--border-color);
 }
 
-.divider span {
+.divider span,
+.divider .divider-text {
   background-color: var(--card-bg);
   padding: 0 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .social-buttons {
@@ -461,6 +486,109 @@
   gap: 0.5rem;
   font-weight: 500;
   transition: var(--transition);
+}
+
+/* Enhanced Social Login Buttons */
+.social-login-section .btn {
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  border-width: 1.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.social-login-section .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-color-rgb), 0.1), transparent);
+  transition: left 0.5s;
+  z-index: 0;
+}
+
+.social-login-section .btn:hover::before {
+  left: 100%;
+}
+
+.social-login-section .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--accent-color-rgb), 0.15);
+  border-color: var(--accent-color);
+  background-color: var(--card-hover-bg);
+}
+
+.social-login-section .btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3);
+  border-color: var(--accent-color);
+  background-color: var(--card-hover-bg);
+}
+
+.social-login-section .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(var(--accent-color-rgb), 0.2);
+  background-color: rgba(var(--accent-color-rgb), 0.1);
+  border-color: var(--accent-color);
+}
+
+.social-login-section .btn i {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* Google Button Specific */
+.social-login-section .btn:has(.bi-google):hover {
+  border-color: #4285f4;
+  color: #4285f4;
+}
+
+.social-login-section .btn:has(.bi-google):focus {
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+  border-color: #4285f4;
+}
+
+.social-login-section .btn:has(.bi-google):active {
+  background-color: rgba(66, 133, 244, 0.1);
+  border-color: #4285f4;
+}
+
+/* GitHub Button Specific */
+.social-login-section .btn:has(.bi-github):hover {
+  border-color: #333;
+  color: #333;
+}
+
+.social-login-section .btn:has(.bi-github):focus {
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.3);
+  border-color: #333;
+}
+
+.social-login-section .btn:has(.bi-github):active {
+  background-color: rgba(51, 51, 51, 0.1);
+  border-color: #333;
+}
+
+/* Dark theme adjustments for social buttons */
+[data-theme*="dark"] .social-login-section .btn:has(.bi-github):hover,
+[data-theme*="dark"] .social-login-section .btn:has(.bi-github):focus,
+[data-theme*="dark"] .social-login-section .btn:has(.bi-github):active {
+  border-color: #f0f6ff;
+  color: #f0f6ff;
+}
+
+[data-theme*="dark"] .social-login-section .btn:has(.bi-github):focus {
+  box-shadow: 0 0 0 3px rgba(240, 246, 255, 0.3);
+}
+
+[data-theme*="dark"] .social-login-section .btn:has(.bi-github):active {
+  background-color: rgba(240, 246, 255, 0.1);
 }
 
 /* Password Strength */
