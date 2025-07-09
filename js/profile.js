@@ -1,5 +1,13 @@
 // Profile Page Scripts
 document.addEventListener("DOMContentLoaded", function () {
+  // Check authentication first
+  if (typeof AuthChecker !== "undefined" && !AuthChecker.requireAuth()) {
+    return; // Will redirect to login if not authenticated
+  }
+
+  // Load user data if authenticated
+  loadUserProfile();
+
   // Photo upload preview
   const photoUpload = document.getElementById("photo-upload");
   const profileImage = document.getElementById("profile-image");
@@ -126,3 +134,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// Load user profile data
+function loadUserProfile() {
+  if (typeof AuthChecker === "undefined") return;
+
+  const userData = AuthChecker.getUserData();
+  if (!userData) return;
+
+  // Update profile information in the UI
+  const profileName = document.querySelector(".profile-info h2");
+  const profileEmail = document.querySelector(".profile-info p");
+
+  if (profileName) {
+    profileName.textContent = userData.name || "User";
+  }
+
+  if (profileEmail) {
+    profileEmail.textContent = userData.email || "user@example.com";
+  }
+
+  // Update form fields if in edit mode
+  const nameInput = document.getElementById("inputName");
+  const emailInput = document.getElementById("inputEmail");
+
+  if (nameInput) {
+    nameInput.value = userData.name || "";
+  }
+
+  if (emailInput) {
+    emailInput.value = userData.email || "";
+  }
+}

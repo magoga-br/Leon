@@ -55,6 +55,25 @@ class ComponentLoader {
 
     // Set active nav link after components are loaded
     this.setActiveNavLink();
+
+    // Setup authentication UI
+    this.setupAuthUI();
+  }
+
+  static setupAuthUI() {
+    // Wait a bit for components to load
+    setTimeout(() => {
+      if (typeof AuthChecker !== "undefined") {
+        const logoutLink = document.querySelector(".logout-link");
+        if (logoutLink) {
+          if (AuthChecker.isAuthenticated()) {
+            logoutLink.style.display = "block";
+          } else {
+            logoutLink.style.display = "none";
+          }
+        }
+      }
+    }, 100);
   }
 
   static setActiveNavLink() {

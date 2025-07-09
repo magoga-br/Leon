@@ -71,8 +71,11 @@
   
   /* Password Strength Colors - Status indicators */
   --password-weak: #dc3545;              /* Weak password indicator */
+  --password-weak-rgb: 220, 53, 69;      /* Weak password RGB */
   --password-medium: #ffc107;            /* Medium password indicator */
+  --password-medium-rgb: 255, 193, 7;    /* Medium password RGB */
   --password-strong: #28a745;            /* Strong password indicator */
+  --password-strong-rgb: 40, 167, 69;    /* Strong password RGB */
   
   /* Layout */
   --border-radius: 28px;
@@ -108,7 +111,7 @@
   /* Text Colors - Hierarchy */
   --text-primary: #e5e5e5;                /* Primary text */
   --text-secondary: #b3b3b3;              /* Secondary text */
-  --text-muted: #777777;                  /* Muted text */
+  --text-muted: #9a9a9a;                  /* Muted text - improved contrast */
   
   /* Accent Colors - Highlights */
   --accent-color: #888888;                /* Neutral light gray accent for numbers/highlights */
@@ -172,7 +175,7 @@
   /* Text Colors */
   --text-primary: #e1e6f0;
   --text-secondary: #a8b2c8;
-  --text-muted: #6b7694;
+  --text-muted: #8a9bb3;                  /* Improved contrast for muted text */
   
   /* Accent Colors */
   --accent-color: #4ea8de;
@@ -255,7 +258,7 @@
   /* Text Colors */
   --text-primary: #e6f2e6;
   --text-secondary: #b8d4b8;
-  --text-muted: #7a9d7a;
+  --text-muted: #96b996;                  /* Improved contrast for muted text */
   
   /* Accent Colors */
   --accent-color: #4ade80;
@@ -338,7 +341,7 @@
   /* Text Colors */
   --text-primary: #f2e6e6;
   --text-secondary: #d4b8b8;
-  --text-muted: #9d7a7a;
+  --text-muted: #b89696;                  /* Improved contrast for muted text */
   
   /* Accent Colors */
   --accent-color: #ef4444;
@@ -697,6 +700,11 @@ html:not(.sidebar-collapsed) .sidebar .brand .title {
   font-size: 0.9rem;
 }
 
+/* Ensure form labels have good contrast */
+.form-label {
+  color: var(--text-primary) !important;
+}
+
 .form-control {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -716,8 +724,93 @@ html:not(.sidebar-collapsed) .sidebar .brand .title {
 }
 
 .form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* Ensure descriptions and help text are visible */
+.form-text,
+.text-help {
+  color: var(--text-muted) !important;
+}
+
+/* Better contrast for card descriptions */
+.card-text,
+.card-body p {
   color: var(--text-secondary);
-  opacity: 0.7;
+}
+
+/* Improve visibility of disabled elements */
+.disabled,
+.form-control:disabled,
+.form-control[readonly] {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+}
+
+/* Links should be visible in all themes */
+a:not(.btn):not(.nav-link) {
+  color: var(--accent-color);
+}
+
+a:not(.btn):not(.nav-link):hover {
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Text Utilities Override - Bootstrap Compatibility
+   ========================================================================== */
+
+/* Override Bootstrap's text-muted to use our CSS variables */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Override Bootstrap's text utilities to use our CSS variables */
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Small text elements */
+small,
+.small {
+  color: var(--text-muted);
+  font-size: 0.875em;
+}
+
+/* Lead text */
+.lead {
+  color: var(--text-secondary);
+}
+
+/* Ensure good contrast for all text in dark themes */
+@media (prefers-color-scheme: dark) {
+  .text-muted {
+    color: var(--text-muted) !important;
+  }
+  
+  small,
+  .small {
+    color: var(--text-muted);
+  }
+}
+
+/* Additional text utilities for better dark theme support */
+.text-light-only {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .text-light-only,
+[data-theme="blue-dark"] .text-light-only,
+[data-theme="green-dark"] .text-light-only,
+[data-theme="red-dark"] .text-light-only,
+[data-theme="purple-dark"] .text-light-only {
+  color: var(--text-muted);
 }
 
 /* Utilities */

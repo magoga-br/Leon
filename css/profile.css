@@ -115,27 +115,28 @@
 }
 
 /* ==========================================================================
-   Edit Profile Button
+   Header Navigation Links (Edit Profile Page)
    ========================================================================== */
 .main-header .nav-link {
-  padding: 0.75rem 1rem;
-  border-radius: var(--border-radius-inner-nav);
-  font-weight: 500;
-  text-decoration: none;
-  transition: var(--transition);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--text-primary);
-  color: var(--card-bg);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-inner);
+  transition: var(--transition);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
 }
 
 .main-header .nav-link:hover {
-  background-color: var(--text-secondary);
-  color: var(--card-bg);
-  text-decoration: none;
+  background-color: var(--btn-sidebar-hover-bg);
   transform: translateY(-1px);
-  opacity: 0.9;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
 .main-header .nav-link i {
@@ -143,6 +144,45 @@
   width: 20px;
   text-align: center;
   flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Profile Page Header Actions
+   ========================================================================== */
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-actions .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-inner);
+  transition: var(--transition);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+}
+
+.profile-actions .nav-link:hover {
+  background-color: var(--btn-sidebar-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.profile-actions .nav-link.text-danger {
+  color: #dc3545;
+  border-color: rgba(220, 53, 69, 0.3);
+}
+
+.profile-actions .nav-link.text-danger:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
 }
 
 /* ==========================================================================
@@ -251,5 +291,36 @@
     text-align: left;
     max-width: none;
     margin: 0 0 1rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+  
+  .profile-actions .nav-link {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+  
+  .profile-actions {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .profile-actions .nav-link span {
+    display: none;
   }
 }
