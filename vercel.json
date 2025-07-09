@@ -1,8 +1,32 @@
 {
   "rewrites": [
     {
-      "source": "/(css|fonts|js)(/.*)?",
+      "source": "/(css|fonts|js|assets)(/.*)?",
       "destination": "/$1$2"
+    },
+    {
+      "source": "/settings",
+      "destination": "/pages/settings/settings.html"
+    },
+    {
+      "source": "/chat",
+      "destination": "/pages/chat/chat.html"
+    },
+    {
+      "source": "/music",
+      "destination": "/pages/music/music.html"
+    },
+    {
+      "source": "/games",
+      "destination": "/pages/games/games.html"
+    },
+    {
+      "source": "/profile",
+      "destination": "/pages/profile/profile.html"
+    },
+    {
+      "source": "/profile/edit",
+      "destination": "/pages/profile/edit.html"
     },
     {
       "source": "/:page/:subpage",

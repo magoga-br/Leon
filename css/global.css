@@ -1,3 +1,7 @@
+/* ==========================================================================
+   LEON - Global Styles & Color System
+   ========================================================================== */
+
 @font-face {
   font-family: "Monocraft";
   src: url("../fonts/Monocraft.ttf") format("truetype");
@@ -5,110 +9,735 @@
 }
 
 :root {
+  /* Typography */
   --font-primary: "Monocraft";
-  --background-color: #171717;
-  --cor-secundaria: #212121;
-  --branco: #fffce1;
-  --muted: #b3b3b3;
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* ==========================================================================
+     LIGHT THEME - Organized Color System
+     ========================================================================== */
+  
+  /* Base Colors - Background layers */
+  --bg-color: #f6f6f8;                    /* Main background */
+  --sidebar-bg: #edeef2;                  /* Sidebar background */
+  --card-bg: #ffffff;                     /* Card backgrounds */
+  
+  /* Text Colors - Hierarchy */
+  --text-primary: #202020;                /* Primary text */
+  --text-secondary: #5a5a5a;              /* Secondary text */
+  --text-muted: #b3b3b3;                  /* Muted text */
+  
+  /* Accent Colors - Highlights */
+  --accent-color: #555555;                /* Neutral gray accent for numbers/highlights */
+  
+  /* Border Colors - Dividers */
+  --border-color: rgba(0, 0, 0, 0.1);     /* General borders */
+  
+  /* Button Colors - Sidebar Navigation */
+  --btn-sidebar-bg: transparent;          /* Sidebar button background */
+  --btn-sidebar-text: #5a5a5a;           /* Sidebar button text */
+  --btn-sidebar-hover-bg: rgba(0, 0, 0, 0.05); /* Sidebar button hover background */
+  --btn-sidebar-hover-text: #202020;     /* Sidebar button hover text */
+  --btn-sidebar-active-bg: #555555;      /* Sidebar button active background */
+  --btn-sidebar-active-text: #ffffff;    /* Sidebar button active text */
+  
+  /* Button Colors - Primary Actions */
+  --btn-primary-bg: #202020;             /* Primary button background */
+  --btn-primary-text: #ffffff;           /* Primary button text */
+  --btn-primary-hover-bg: #5a5a5a;       /* Primary button hover background */
+  --btn-primary-hover-text: #ffffff;     /* Primary button hover text */
+  
+  /* Button Colors - Secondary Actions */
+  --btn-secondary-bg: rgba(0, 0, 0, 0.1); /* Secondary button background */
+  --btn-secondary-text: #5a5a5a;         /* Secondary button text */
+  --btn-secondary-hover-bg: #202020;     /* Secondary button hover background */
+  --btn-secondary-hover-text: #ffffff;   /* Secondary button hover text */
+  
+  /* Card Header Colors - Section headers */
+  --card-header-bg: rgba(0, 0, 0, 0.05); /* Card header background */
+  --card-header-text: #202020;           /* Card header text */
+  --card-header-text-muted: #5a5a5a;     /* Card header muted text */
+  
+  /* Form Colors - Input elements */
+  --form-input-bg: #ffffff;              /* Form input background */
+  --form-input-text: #202020;            /* Form input text */
+  --form-input-border: rgba(0, 0, 0, 0.1); /* Form input border */
+  --form-input-focus-border: #555555;    /* Form input focus border */
+  --form-label-text: #202020;            /* Form label text */
+  
+  /* Password Strength Colors - Status indicators */
+  --password-weak: #dc3545;              /* Weak password indicator */
+  --password-medium: #ffc107;            /* Medium password indicator */
+  --password-strong: #28a745;            /* Strong password indicator */
+  
+  /* Layout */
+  --border-radius: 28px;
+  --border-radius-sm: 14px;
+  
+  /* Border Radius Internos */
+  --border-radius-inner: 16px;
+  --border-radius-inner-sm: 6px;
+  --border-radius-inner-card: 20px;
+  --border-radius-inner-btn: 8px;
+  --border-radius-inner-form: 6px;
+  --border-radius-inner-nav: 10px;
+  
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.2s ease;
+  
+  /* Sidebar */
+  --sidebar-width: 240px;
+  --sidebar-min-width: 80px;
+  --sidebar-max-width: 350px;
 }
 
+/* ==========================================================================
+   DARK THEME - Organized Color System  
+   ========================================================================== */
+[data-theme="dark"] {
+  /* Base Colors - Background layers */
+  --bg-color: #252525;                    /* Main background */
+  --sidebar-bg: #2d2d2d;                  /* Sidebar background */
+  --card-bg: #303030;                     /* Card backgrounds */
+  
+  /* Text Colors - Hierarchy */
+  --text-primary: #e5e5e5;                /* Primary text */
+  --text-secondary: #b3b3b3;              /* Secondary text */
+  --text-muted: #777777;                  /* Muted text */
+  
+  /* Accent Colors - Highlights */
+  --accent-color: #888888;                /* Neutral light gray accent for numbers/highlights */
+  
+  /* Border Colors - Dividers */
+  --border-color: rgba(255, 255, 255, 0.1); /* General borders */
+  
+  /* Button Colors - Sidebar Navigation */
+  --btn-sidebar-bg: transparent;          /* Sidebar button background */
+  --btn-sidebar-text: #b3b3b3;           /* Sidebar button text */
+  --btn-sidebar-hover-bg: rgba(255, 255, 255, 0.05); /* Sidebar button hover background */
+  --btn-sidebar-hover-text: #e5e5e5;     /* Sidebar button hover text */
+  --btn-sidebar-active-bg: #888888;      /* Sidebar button active background */
+  --btn-sidebar-active-text: #ffffff;    /* Sidebar button active text */
+  
+  /* Button Colors - Primary Actions */
+  --btn-primary-bg: #e5e5e5;             /* Primary button background */
+  --btn-primary-text: #252525;           /* Primary button text */
+  --btn-primary-hover-bg: #b3b3b3;       /* Primary button hover background */
+  --btn-primary-hover-text: #252525;     /* Primary button hover text */
+  
+  /* Button Colors - Secondary Actions */
+  --btn-secondary-bg: rgba(255, 255, 255, 0.1); /* Secondary button background */
+  --btn-secondary-text: #b3b3b3;         /* Secondary button text */
+  --btn-secondary-hover-bg: #e5e5e5;     /* Secondary button hover background */
+  --btn-secondary-hover-text: #252525;   /* Secondary button hover text */
+  
+  /* Card Header Colors - Section headers */
+  --card-header-bg: rgba(255, 255, 255, 0.05); /* Card header background */
+  --card-header-text: #e5e5e5;           /* Card header text */
+  --card-header-text-muted: #b3b3b3;     /* Card header muted text */
+  
+  /* Form Colors - Input elements */
+  --form-input-bg: #303030;              /* Form input background */
+  --form-input-text: #e5e5e5;            /* Form input text */
+  --form-input-border: rgba(255, 255, 255, 0.1); /* Form input border */
+  --form-input-focus-border: #888888;    /* Form input focus border */
+  --form-label-text: #e5e5e5;            /* Form label text */
+  
+  /* Password Strength Colors - Status indicators */
+  --password-weak: #ff6b6b;              /* Weak password indicator */
+  --password-medium: #ffd93d;            /* Medium password indicator */
+  --password-strong: #51cf66;            /* Strong password indicator */
+  
+  /* Shadows - Enhanced for dark theme */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================================
+   COLORED THEMES - Additional Theme Variations
+   ========================================================================== */
+
+/* Dark Blue Theme */
+[data-theme="blue-dark"] {
+  /* Base Colors */
+  --bg-color: #1a1d29;
+  --sidebar-bg: #1e2330;
+  --card-bg: #252b3d;
+  
+  /* Text Colors */
+  --text-primary: #e1e6f0;
+  --text-secondary: #a8b2c8;
+  --text-muted: #6b7694;
+  
+  /* Accent Colors */
+  --accent-color: #4ea8de;
+  
+  /* Border Colors */
+  --border-color: rgba(78, 168, 222, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #a8b2c8;
+  --btn-sidebar-hover-bg: rgba(78, 168, 222, 0.1);
+  --btn-sidebar-hover-text: #e1e6f0;
+  --btn-sidebar-active-bg: #4ea8de;
+  --btn-sidebar-active-text: #ffffff;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #4ea8de;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover-bg: #3a8bc4;
+  --btn-primary-hover-text: #ffffff;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(78, 168, 222, 0.15);
+  --btn-secondary-text: #4ea8de;
+  --btn-secondary-hover-bg: rgba(78, 168, 222, 0.25);
+  --btn-secondary-hover-text: #4ea8de;
+}
+
+/* Light Purple Theme */
+[data-theme="purple-light"] {
+  /* Base Colors */
+  --bg-color: #faf9ff;
+  --sidebar-bg: #f5f3ff;
+  --card-bg: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #374151;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Accent Colors */
+  --accent-color: #8b5cf6;
+  
+  /* Border Colors */
+  --border-color: rgba(139, 92, 246, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #6b7280;
+  --btn-sidebar-hover-bg: rgba(139, 92, 246, 0.1);
+  --btn-sidebar-hover-text: #374151;
+  --btn-sidebar-active-bg: #8b5cf6;
+  --btn-sidebar-active-text: #ffffff;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #8b5cf6;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover-bg: #7c3aed;
+  --btn-primary-hover-text: #ffffff;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(139, 92, 246, 0.1);
+  --btn-secondary-text: #8b5cf6;
+  --btn-secondary-hover-bg: rgba(139, 92, 246, 0.2);
+  --btn-secondary-hover-text: #8b5cf6;
+}
+
+/* Dark Green Theme */
+[data-theme="green-dark"] {
+  /* Base Colors */
+  --bg-color: #1a2e1a;
+  --sidebar-bg: #1f3a1f;
+  --card-bg: #254725;
+  
+  /* Text Colors */
+  --text-primary: #e6f2e6;
+  --text-secondary: #b8d4b8;
+  --text-muted: #7a9d7a;
+  
+  /* Accent Colors */
+  --accent-color: #4ade80;
+  
+  /* Border Colors */
+  --border-color: rgba(74, 222, 128, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #b8d4b8;
+  --btn-sidebar-hover-bg: rgba(74, 222, 128, 0.1);
+  --btn-sidebar-hover-text: #e6f2e6;
+  --btn-sidebar-active-bg: #4ade80;
+  --btn-sidebar-active-text: #1a2e1a;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #4ade80;
+  --btn-primary-text: #1a2e1a;
+  --btn-primary-hover-bg: #22c55e;
+  --btn-primary-hover-text: #1a2e1a;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(74, 222, 128, 0.15);
+  --btn-secondary-text: #4ade80;
+  --btn-secondary-hover-bg: rgba(74, 222, 128, 0.25);
+  --btn-secondary-hover-text: #4ade80;
+}
+
+/* Light Orange Theme */
+[data-theme="orange-light"] {
+  /* Base Colors */
+  --bg-color: #fffaf0;
+  --sidebar-bg: #fef7ed;
+  --card-bg: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #431407;
+  --text-secondary: #9a3412;
+  --text-muted: #c2410c;
+  
+  /* Accent Colors */
+  --accent-color: #f97316;
+  
+  /* Border Colors */
+  --border-color: rgba(249, 115, 22, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #9a3412;
+  --btn-sidebar-hover-bg: rgba(249, 115, 22, 0.1);
+  --btn-sidebar-hover-text: #431407;
+  --btn-sidebar-active-bg: #f97316;
+  --btn-sidebar-active-text: #ffffff;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #f97316;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover-bg: #ea580c;
+  --btn-primary-hover-text: #ffffff;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(249, 115, 22, 0.1);
+  --btn-secondary-text: #f97316;
+  --btn-secondary-hover-bg: rgba(249, 115, 22, 0.2);
+  --btn-secondary-hover-text: #f97316;
+}
+
+/* Dark Red Theme */
+[data-theme="red-dark"] {
+  /* Base Colors */
+  --bg-color: #2d1b1b;
+  --sidebar-bg: #3d2020;
+  --card-bg: #4a2626;
+  
+  /* Text Colors */
+  --text-primary: #f2e6e6;
+  --text-secondary: #d4b8b8;
+  --text-muted: #9d7a7a;
+  
+  /* Accent Colors */
+  --accent-color: #ef4444;
+  
+  /* Border Colors */
+  --border-color: rgba(239, 68, 68, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #d4b8b8;
+  --btn-sidebar-hover-bg: rgba(239, 68, 68, 0.1);
+  --btn-sidebar-hover-text: #f2e6e6;
+  --btn-sidebar-active-bg: #ef4444;
+  --btn-sidebar-active-text: #ffffff;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #ef4444;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover-bg: #dc2626;
+  --btn-primary-hover-text: #ffffff;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(239, 68, 68, 0.15);
+  --btn-secondary-text: #ef4444;
+  --btn-secondary-hover-bg: rgba(239, 68, 68, 0.25);
+  --btn-secondary-hover-text: #ef4444;
+}
+
+/* Light Teal Theme */
+[data-theme="teal-light"] {
+  /* Base Colors */
+  --bg-color: #f0fdfa;
+  --sidebar-bg: #ecfdf5;
+  --card-bg: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #134e4a;
+  --text-secondary: #0f766e;
+  --text-muted: #14b8a6;
+  
+  /* Accent Colors */
+  --accent-color: #06b6d4;
+  
+  /* Border Colors */
+  --border-color: rgba(6, 182, 212, 0.2);
+  
+  /* Button Colors - Sidebar */
+  --btn-sidebar-bg: transparent;
+  --btn-sidebar-text: #0f766e;
+  --btn-sidebar-hover-bg: rgba(6, 182, 212, 0.1);
+  --btn-sidebar-hover-text: #134e4a;
+  --btn-sidebar-active-bg: #06b6d4;
+  --btn-sidebar-active-text: #ffffff;
+  
+  /* Button Colors - Primary */
+  --btn-primary-bg: #06b6d4;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover-bg: #0891b2;
+  --btn-primary-hover-text: #ffffff;
+  
+  /* Button Colors - Secondary */
+  --btn-secondary-bg: rgba(6, 182, 212, 0.1);
+  --btn-secondary-text: #06b6d4;
+  --btn-secondary-hover-bg: rgba(6, 182, 212, 0.2);
+  --btn-secondary-hover-text: #06b6d4;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: var(--font-primary);
 }
 
 body {
-  background-color: var(--background-color);
-  font-family: var(--font-primary);
-  color: var(--branco);
+  background-color: var(--sidebar-bg);
+  font-family: var(--font-system);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar {
-  height: 90px;
-  background-color: var(--background-color);
-  z-index: 9999;
-
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-min-width);
+  max-width: var(--sidebar-max-width);
+  background-color: var(--sidebar-bg);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  transition: none;
+  z-index: 1000;
 }
 
+/* Resize handle */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -2px;
+  width: 8px;
+  height: 100%;
+  background-color: transparent;
+  cursor: col-resize;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.sidebar:hover::after {
+  background-color: var(--border-color);
+  opacity: 0.3;
+  right: -1px;
+}
+
+.sidebar.resizing::after {
+  background-color: var(--border-color);
+  opacity: 0.6;
+  right: -1px;
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.collapsed .nav-link span,
+.sidebar.collapsed .brand .title,
+html.sidebar-collapsed .sidebar .nav-link span,
+html.sidebar-collapsed .sidebar .brand .title {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0;
+  transition: opacity 0.25s ease, width 0.25s ease, margin-left 0.25s ease;
+}
+
+.sidebar:not(.collapsed) .nav-link span,
+.sidebar:not(.collapsed) .brand .title,
+html:not(.sidebar-collapsed) .sidebar .nav-link span,
+html:not(.sidebar-collapsed) .sidebar .brand .title {
+  opacity: 1;
+  width: auto;
+  margin-left: 0.75rem;
+  transition: opacity 0.25s ease 0.1s, width 0.25s ease 0.1s, margin-left 0.25s ease;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.sidebar .brand .logo {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.sidebar .brand .title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-inner-nav);
+  background-color: var(--btn-sidebar-bg);
+  color: var(--btn-sidebar-text);
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.sidebar .nav-link:hover {
+  background-color: var(--btn-sidebar-hover-bg);
+  color: var(--btn-sidebar-hover-text);
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--btn-sidebar-active-bg);
+  color: var(--btn-sidebar-active-text);
+}
+
+.sidebar .nav-link i {
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Profile and Settings sections together */
+.sidebar .profile {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.sidebar .settings {
+  padding-top: 0.25rem;
+}
+
+/* Main Content */
+.main-content {
+  background-color: var(--sidebar-bg);
+  margin-left: var(--sidebar-width) !important;
+  padding: 2rem;
+  flex: 1;
+}
+
+.content-card {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  min-height: calc(100vh - 8rem);
+}
+
+.main-header {
+  margin-bottom: 2rem;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Category Cards - Estilos globais para cards */
+.category-card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-primary);
+  display: block;
+  height: 100%;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.category-card .card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--border-radius-inner-card) var(--border-radius-inner-card) 0 0;
+}
+
+.category-card .card-body {
+  padding: 1.25rem;
+  border-radius: 0 0 var(--border-radius-inner-card) var(--border-radius-inner-card);
+}
+
+.category-card .card-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.category-card .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
+  margin-left: var(--sidebar-width) !important;
+  padding: 1rem 2rem;
+}
+
+/* Button Styles - Componentes comuns */
+.btn {
+  border: none;
+  border-radius: var(--border-radius-inner-btn);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Button Styles - Primary Actions */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+  color: var(--btn-primary-hover-text);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Button Styles - Secondary Actions */
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* Form Components - Formulários padronizados */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-inner-form);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(125, 92, 255, 0.1);
+  background-color: var(--card-bg);
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Utilities */
 a {
   text-decoration: none;
-  color: var(--branco);
+  color: var(--text-primary);
 }
 
 .brand-container {
   display: flex;
-  a {
-    transition: all 0.2s ease-in-out;
-    color: var(--branco);
-    &:hover {
-      transform: scale(1.02);
-      color: var(--branco);
-      opacity: 0.8;
-    }
-  }
 }
 
-.profile {
-  background-color: var(--cor-secundaria);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
-    opacity: 0.8;
-  }
+.brand-container a {
+  transition: var(--transition);
+  color: var(--text-primary);
 }
 
-.card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  background-color: var(--cor-secundaria);
-
-  &:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-
-    .card-img {
-      transform: scale(1.1);
-    }
-  }
-
-  .card-body {
-    background-color: var(--cor-secundaria);
-  }
-
-  .card-img {
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 9998;
-    cursor: pointer;
-  }
-
-  h5.card-text {
-    color: var(--branco);
-    font-weight: bold;
-  }
-
-  p {
-    color: var(--muted);
-    font-size: 0.9em;
-  }
+.brand-container a:hover {
+  transform: scale(1.02);
+  color: var(--text-primary);
+  opacity: 0.8;
 }
 
-.footer {
-  background-color: var(--cor-secundaria);
-  color: var(--branco);
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .main-content,
+  .footer {
+    margin-left: 0 !important;
+  }
+  
+  .content-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
 }

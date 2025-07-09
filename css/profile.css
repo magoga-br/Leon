@@ -1,58 +1,255 @@
+/* ==========================================================================
+   LEON - Profile Page Styles
+   ========================================================================== */
+
 @import url("/css/global.css");
 
+/* ==========================================================================
+   Profile Hero Section
+   ========================================================================== */
+.profile-hero {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-hover);
+  margin-bottom: 2rem;
+}
+
+.hero-background {
+  display: none;
+}
+
+.hero-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-photo-section {
+  margin-top: 0;
+}
+
+.profile-info {
+  text-align: center;
+  width: 100%;
+}
+
+.profile-details {
+  margin-bottom: 1.5rem;
+}
+
+.profile-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-username {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.profile-bio {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 1rem auto;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: var(--border-radius-inner);
+  border-left: 3px solid var(--accent-color);
+  font-style: italic;
+}
+
+.profile-joined {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-joined i {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Profile Photo Container (Legacy for Edit Page)
+   ========================================================================== */
+.profile-photo-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.profile-photo-container .card {
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Profile Photo Card Text */
+.profile-photo-container .card-body h5 {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-photo-container .card-body p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Edit Profile Button
+   ========================================================================== */
+.main-header .nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-inner-nav);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--text-primary);
+  color: var(--card-bg);
+}
+
+.main-header .nav-link:hover {
+  background-color: var(--text-secondary);
+  color: var(--card-bg);
+  text-decoration: none;
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.main-header .nav-link i {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Photo Container Component
+   ========================================================================== */
 .photo-container {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
 
-  label {
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    display: block;
+.photo-container label {
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  transition: var(--transition);
+}
+
+.photo-container label:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.photo-container img {
+  border: solid 1px var(--border-color);
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+/* Photo Container: Edit Overlay */
+.photo-container .edit-photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 1.5rem;
+}
+
+.photo-container label:hover .edit-photo-overlay {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Hero Section Mobile */
+  .hero-content {
+    padding: 1.5rem;
+    gap: 1rem;
   }
-
-  label:hover {
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
-    opacity: 0.8;
+  
+  .profile-photo-section {
+    margin-top: 0;
   }
-
-  img {
-    border: solid 1px var(--branco);
-    width: 200px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .edit-photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    color: var(--branco);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+  
+  .profile-name {
     font-size: 1.5rem;
   }
+  
+  .profile-bio {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
 
-  label:hover .edit-photo-overlay {
-    opacity: 1;
+  .photo-container img {
+    width: 150px;
   }
 }
 
-.card-profile-edit{
-  img{
-    width: 200px;
-    aspect-ratio: 1.3 / 1;
-    object-fit: cover;
+@media (min-width: 769px) {
+  /* Desktop Layout for Hero */
+  .hero-content {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .profile-photo-section {
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+  
+  .profile-info {
+    flex: 1;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  
+  .profile-bio {
+    text-align: left;
+    max-width: none;
+    margin: 0 0 1rem 0;
   }
 }

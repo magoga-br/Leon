@@ -1,0 +1,563 @@
+/* ==========================================================================
+   LEON - Settings Page Styles
+   ========================================================================== */
+
+@import url('/css/global.css');
+
+/* ==========================================================================
+   Settings Container
+   ========================================================================== */
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Settings Card Component
+   ========================================================================== */
+.settings-card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.settings-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Settings Card: Header */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(135deg, rgba(125, 92, 255, 0.05) 0%, rgba(125, 92, 255, 0.02) 100%);
+}
+
+.settings-header i {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  background: rgba(125, 92, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+
+.settings-header p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Settings Card: Body */
+.settings-body {
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   Setting Item Component
+   ========================================================================== */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+/* Setting Item: Info */
+.setting-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.setting-info p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Setting Item: Control */
+.setting-control {
+  min-width: 200px;
+}
+
+/* ==========================================================================
+   Settings Select Component (Common Style for All Selects)
+   ========================================================================== */
+.settings-select {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: var(--transition);
+  cursor: pointer;
+  width: 100%;
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(125, 92, 255, 0.1);
+  background-color: var(--card-bg);
+}
+
+.settings-select option {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.settings-select option:disabled {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .settings-select {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .settings-select:focus {
+  background-color: var(--card-bg);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .settings-select option {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .settings-select option:disabled {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Colored Themes Adjustments for Settings
+   ========================================================================== */
+
+/* Dark Blue Theme Settings */
+[data-theme="blue-dark"] .settings-select {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="blue-dark"] .settings-select:focus {
+  background-color: var(--card-bg);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+[data-theme="blue-dark"] .settings-select option {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+}
+
+[data-theme="blue-dark"] .notification-toast {
+  background-color: rgba(30, 35, 48, 0.95);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Purple Light Theme Settings */
+[data-theme="purple-light"] .settings-select {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="purple-light"] .settings-select:focus {
+  background-color: var(--bg-color);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* Green Dark Theme Settings */
+[data-theme="green-dark"] .settings-select {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="green-dark"] .settings-select:focus {
+  background-color: var(--card-bg);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+[data-theme="green-dark"] .notification-toast {
+  background-color: rgba(31, 58, 31, 0.95);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Orange Light Theme Settings */
+[data-theme="orange-light"] .settings-select {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="orange-light"] .settings-select:focus {
+  background-color: var(--bg-color);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* Red Dark Theme Settings */
+[data-theme="red-dark"] .settings-select {
+  background-color: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="red-dark"] .settings-select:focus {
+  background-color: var(--card-bg);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+[data-theme="red-dark"] .notification-toast {
+  background-color: rgba(61, 32, 32, 0.95);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Teal Light Theme Settings */
+[data-theme="teal-light"] .settings-select {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="teal-light"] .settings-select:focus {
+  background-color: var(--bg-color);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Special Elements
+   ========================================================================== */
+.coming-soon {
+  background: linear-gradient(45deg, var(--text-muted), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Form Controls & Switches
+   ========================================================================== */
+.form-check-input {
+  background-color: var(--input-bg, #fff);
+  border-color: var(--border-color);
+  transition: var(--transition);
+}
+
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(125, 92, 255, 0.25);
+}
+
+/* Custom Switch Styles */
+.form-switch .form-check-input {
+  width: 2.5rem;
+  height: 1.25rem;
+  border-radius: 1rem;
+  background-image: none;
+}
+
+.form-switch .form-check-input:checked {
+  background-position: right center;
+}
+
+/* ==========================================================================
+   Action Buttons
+   ========================================================================== */
+.btn-outline-danger,
+.btn-outline-warning {
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger-color, #dc3545);
+  border-color: var(--danger-color, #dc3545);
+  transform: translateY(-1px);
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--warning-color, #ffc107);
+  border-color: var(--warning-color, #ffc107);
+  color: #000;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Notification Toast
+   ========================================================================== */
+.notification-toast {
+  backdrop-filter: blur(10px);
+  border: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notification-toast::before {
+  content: '';
+  width: 4px;
+  height: 100%;
+  background-color: currentColor;
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+/* ==========================================================================
+   Accessibility Features
+   ========================================================================== */
+
+/* High Contrast Mode */
+[data-high-contrast="true"] {
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --border-color: #000000;
+  --accent-color: #0000ff;
+  --card-bg: #ffffff;
+}
+
+[data-high-contrast="true"][data-theme="dark"] {
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --border-color: #ffffff;
+  --accent-color: #ffff00;
+  --card-bg: #000000;
+}
+
+/* Reduced Motion */
+[data-reduced-motion="true"] * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Font Size Adjustments */
+[data-font-size="small"] {
+  font-size: 0.875rem;
+}
+
+[data-font-size="large"] {
+  font-size: 1.125rem;
+}
+
+[data-font-size="extra-large"] {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Developer Mode Styles
+   ========================================================================== */
+[data-developer-mode="true"] {
+  position: relative;
+}
+
+[data-developer-mode="true"]::before {
+  content: "DEV MODE";
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 3px;
+  z-index: 9998;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   Settings Section Icons
+   ========================================================================== */
+.settings-header i.bi-globe {
+  background: linear-gradient(135deg, #17a2b8, #138496) !important;
+  color: white !important;
+}
+
+.settings-header i.bi-bell {
+  background: linear-gradient(135deg, #ffc107, #e0a800) !important;
+  color: white !important;
+}
+
+.settings-header i.bi-shield-check {
+  background: linear-gradient(135deg, #28a745, #1e7e34) !important;
+  color: white !important;
+}
+
+.settings-header i.bi-universal-access {
+  background: linear-gradient(135deg, #6f42c1, #59339d) !important;
+  color: white !important;
+}
+
+.settings-header i.bi-gear-wide-connected {
+  background: linear-gradient(135deg, #6c757d, #545b62) !important;
+  color: white !important;
+}
+
+/* Ícone da seção Appearance (Palette) */
+.settings-header i.bi-palette {
+  background: linear-gradient(135deg, #e83e8c, #d91a72) !important;
+  color: white !important;
+}
+
+/* ==========================================================================
+   Language Selector Flags (Optional Enhancement)
+   ========================================================================== */
+#languageSelect option[value="en"]::before {
+  content: "🇺🇸 ";
+}
+
+#languageSelect option[value="pt"]::before {
+  content: "🇧🇷 ";
+}
+
+#languageSelect option[value="es"]::before {
+  content: "🇪🇸 ";
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+.setting-control.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.setting-control.loading::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent-color);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* ==========================================================================
+   Settings Export/Import (Future Enhancement)
+   ========================================================================== */
+.settings-import-export {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Responsive Enhancements
+   ========================================================================== */
+@media (max-width: 576px) {
+  .settings-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .setting-item h4 {
+    font-size: 1rem;
+  }
+  
+  .btn-sm {
+    font-size: 0.8rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .form-switch .form-check-input {
+    width: 2rem;
+    height: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Dark Theme Specific Adjustments
+   ========================================================================== */
+[data-theme="dark"] .notification-toast {
+  background-color: rgba(33, 37, 41, 0.95);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .form-check-input {
+  background-color: var(--input-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}

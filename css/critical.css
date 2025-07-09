@@ -1,0 +1,128 @@
+/* Critical CSS - Loaded to prevent flash */
+:root {
+    --sidebar-width: 240px;
+    
+    /* Base Colors - Light Theme */
+    --bg-color: #f6f6f8;                    /* Main background */
+    --sidebar-bg: #edeef2;                  /* Sidebar background */
+    --card-bg: #ffffff;                     /* Card backgrounds */
+    
+    /* Text Colors - Light Theme */
+    --text-primary: #202020;                /* Primary text */
+    --text-secondary: #5a5a5a;              /* Secondary text */
+    --text-muted: #b3b3b3;                  /* Muted text */
+    
+    /* Accent Colors - Light Theme */
+    --accent-color: #555555;                /* Neutral gray accent */
+    
+    /* Border Colors - Light Theme */
+    --border-color: rgba(0, 0, 0, 0.1);     /* General borders */
+    
+    /* Button Colors - Sidebar - Light Theme */
+    --btn-sidebar-bg: transparent;
+    --btn-sidebar-text: #5a5a5a;
+    --btn-sidebar-hover-bg: rgba(0, 0, 0, 0.05);
+    --btn-sidebar-hover-text: #202020;
+    --btn-sidebar-active-bg: #555555;
+    --btn-sidebar-active-text: #ffffff;
+    
+    /* Button Colors - Content Area - Light Theme */
+    --btn-primary-bg: #202020;
+    --btn-primary-text: #ffffff;
+    --btn-primary-hover-bg: #5a5a5a;
+    --btn-primary-hover-text: #ffffff;
+    
+    /* Button Colors - Secondary - Light Theme */
+    --btn-secondary-bg: rgba(0, 0, 0, 0.1);
+    --btn-secondary-text: #5a5a5a;
+    --btn-secondary-hover-bg: #202020;
+    --btn-secondary-hover-text: #ffffff;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    /* Base Colors - Dark Theme */
+    --bg-color: #252525;                    /* Main background */
+    --sidebar-bg: #2d2d2d;                  /* Sidebar background */
+    --card-bg: #303030;                     /* Card backgrounds */
+    
+    /* Text Colors - Dark Theme */
+    --text-primary: #e5e5e5;                /* Primary text */
+    --text-secondary: #b3b3b3;              /* Secondary text */
+    --text-muted: #777777;                  /* Muted text */
+    
+    /* Accent Colors - Dark Theme */
+    --accent-color: #888888;                /* Neutral light gray accent */
+    
+    /* Border Colors - Dark Theme */
+    --border-color: rgba(255, 255, 255, 0.1); /* General borders */
+    
+    /* Button Colors - Sidebar - Dark Theme */
+    --btn-sidebar-bg: transparent;
+    --btn-sidebar-text: #b3b3b3;
+    --btn-sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+    --btn-sidebar-hover-text: #e5e5e5;
+    --btn-sidebar-active-bg: #888888;
+    --btn-sidebar-active-text: #ffffff;
+    
+    /* Button Colors - Content Area - Dark Theme */
+    --btn-primary-bg: #e5e5e5;
+    --btn-primary-text: #252525;
+    --btn-primary-hover-bg: #b3b3b3;
+    --btn-primary-hover-text: #252525;
+    
+    /* Button Colors - Secondary - Dark Theme */
+    --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+    --btn-secondary-text: #b3b3b3;
+    --btn-secondary-hover-bg: #e5e5e5;
+    --btn-secondary-hover-text: #252525;
+}
+
+/* Hide elements during loading to prevent flash */
+.sidebar,
+.main-content {
+    visibility: hidden;
+}
+
+/* Show elements after component loading */
+.components-loaded .sidebar,
+.components-loaded .main-content {
+    visibility: visible;
+}
+
+/* Sidebar collapsed state */
+.sidebar-collapsed {
+    --sidebar-width: 80px;
+}
+
+.sidebar-collapsed .title,
+.sidebar-collapsed .nav-link span {
+    display: none;
+}
+
+/* Core layout styles */
+body {
+    background-color: var(--sidebar-bg);
+    color: var(--text-primary);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    z-index: 1000;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width) !important;
+    background-color: var(--bg-color);
+}
+
+.footer {
+    margin-left: var(--sidebar-width) !important;
+    background-color: var(--sidebar-bg);
+    color: var(--text-primary);
+}

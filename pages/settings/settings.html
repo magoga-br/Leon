@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Critical CSS for FOUC prevention -->
+    <link rel="stylesheet" href="/css/critical.css">
+
+    <!-- External stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>Leon - Settings</title>
+</head>
+
+<body>
+    <!-- Sidebar component placeholder -->
+    <div data-component="sidebar"></div>
+
+    <main class="main-content">
+        <div class="content-card">
+            <header class="main-header">
+                <h1 data-translate="settings.title">Settings</h1>
+            </header>
+
+            <!-- Settings Sections -->
+            <div class="settings-container">
+
+                <!-- Appearance Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-palette"></i>
+                            <div>
+                                <h3 data-translate="settings.appearance">Appearance</h3>
+                                <p data-translate="settings.appearance.desc">Customize the visual appearance of the
+                                    application</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Theme Setting -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.theme">Theme</h4>
+                                    <p data-translate="settings.theme.desc">Choose your preferred color scheme</p>
+                                </div>
+                                <div class="setting-control">
+                                    <select class="form-control settings-select theme-selector" id="themeSelect">
+                                        <option value="dark" data-translate="settings.theme.dark">Dark</option>
+                                        <option value="blue-dark" data-translate="settings.theme.bluedark">Dark Blue
+                                        </option>
+                                        <option value="green-dark" data-translate="settings.theme.greendark">Dark Green
+                                        </option>
+                                        <option value="red-dark" data-translate="settings.theme.reddark">Dark Red
+                                        </option>
+                                        <option value="light" data-translate="settings.theme.light">Light</option>
+                                        <option value="orange-light" data-translate="settings.theme.orangelight">Light
+                                            Orange</option>
+                                        <option value="purple-light" data-translate="settings.theme.purplelight">Light
+                                            Purple</option>
+                                        <option value="teal-light" data-translate="settings.theme.teallight">Light Teal
+                                        </option>
+                                        <option value="auto" disabled data-translate="settings.theme.auto">System
+                                            (Coming Soon)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-globe"></i>
+                            <div>
+                                <h3 data-translate="settings.language">Language & Region</h3>
+                                <p data-translate="settings.language.desc">Customize language and regional preferences
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Language Setting -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.language.select">Language</h4>
+                                    <p data-translate="settings.language.select.desc">Choose your preferred language</p>
+                                </div>
+                                <div class="setting-control">
+                                    <select class="form-control settings-select language-selector" id="languageSelect">
+                                        <option value="en">English</option>
+                                        <option value="pt">Português</option>
+                                        <option value="es">Español</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Date Format Setting -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.dateformat">Date Format</h4>
+                                    <p data-translate="settings.dateformat.desc">Choose how dates are displayed</p>
+                                </div>
+                                <div class="setting-control">
+                                    <select class="form-control settings-select date-format-selector"
+                                        id="dateFormatSelect">
+                                        <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                                        <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                                        <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-bell"></i>
+                            <div>
+                                <h3 data-translate="settings.notifications">Notifications</h3>
+                                <p data-translate="settings.notifications.desc">Manage notification preferences</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Browser Notifications -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.notifications.browser">Browser Notifications</h4>
+                                    <p data-translate="settings.notifications.browser.desc">Allow notifications from
+                                        this website</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="browserNotifications">
+                                        <label class="form-check-label" for="browserNotifications"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sound Notifications -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.notifications.sound">Sound Notifications</h4>
+                                    <p data-translate="settings.notifications.sound.desc">Play sound for notifications
+                                    </p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="soundNotifications" checked>
+                                        <label class="form-check-label" for="soundNotifications"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Chat Notifications -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.notifications.chat">Chat Notifications</h4>
+                                    <p data-translate="settings.notifications.chat.desc">Notify when receiving new
+                                        messages</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="chatNotifications" checked>
+                                        <label class="form-check-label" for="chatNotifications"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy & Security Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-shield-check"></i>
+                            <div>
+                                <h3 data-translate="settings.privacy">Privacy & Security</h3>
+                                <p data-translate="settings.privacy.desc">Manage your privacy and security settings</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Auto-save Chat -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.privacy.autosave">Auto-save Chat History</h4>
+                                    <p data-translate="settings.privacy.autosave.desc">Automatically save chat
+                                        conversations</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="autoSaveChat" checked>
+                                        <label class="form-check-label" for="autoSaveChat"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Clear Data Button -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.privacy.cleardata">Clear All Data</h4>
+                                    <p data-translate="settings.privacy.cleardata.desc">Remove all saved data and
+                                        preferences</p>
+                                </div>
+                                <div class="setting-control">
+                                    <button class="btn btn-outline-danger btn-sm" id="clearDataBtn">
+                                        <i class="bi bi-trash"></i> <span
+                                            data-translate="settings.privacy.cleardata.btn">Clear Data</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessibility Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-universal-access"></i>
+                            <div>
+                                <h3 data-translate="settings.accessibility">Accessibility</h3>
+                                <p data-translate="settings.accessibility.desc">Improve accessibility and user
+                                    experience</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Font Size -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.accessibility.fontsize">Font Size</h4>
+                                    <p data-translate="settings.accessibility.fontsize.desc">Adjust text size for better
+                                        readability</p>
+                                </div>
+                                <div class="setting-control">
+                                    <select class="form-control settings-select font-size-selector" id="fontSizeSelect">
+                                        <option value="small" data-translate="settings.accessibility.fontsize.small">
+                                            Small</option>
+                                        <option value="medium" selected
+                                            data-translate="settings.accessibility.fontsize.medium">Medium</option>
+                                        <option value="large" data-translate="settings.accessibility.fontsize.large">
+                                            Large</option>
+                                        <option value="extra-large"
+                                            data-translate="settings.accessibility.fontsize.extralarge">Extra Large
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- High Contrast -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.accessibility.contrast">High Contrast Mode</h4>
+                                    <p data-translate="settings.accessibility.contrast.desc">Increase contrast for
+                                        better visibility</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="highContrastMode">
+                                        <label class="form-check-label" for="highContrastMode"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reduce Motion -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.accessibility.motion">Reduce Motion</h4>
+                                    <p data-translate="settings.accessibility.motion.desc">Minimize animations and
+                                        transitions</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="reduceMotion">
+                                        <label class="form-check-label" for="reduceMotion"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <i class="bi bi-gear-wide-connected"></i>
+                            <div>
+                                <h3 data-translate="settings.advanced">Advanced</h3>
+                                <p data-translate="settings.advanced.desc">Advanced settings and developer options</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-body">
+                            <!-- Developer Mode -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.advanced.developer">Developer Mode</h4>
+                                    <p data-translate="settings.advanced.developer.desc">Enable developer tools and
+                                        debug information</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="developerMode">
+                                        <label class="form-check-label" for="developerMode"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Auto-update -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.advanced.autoupdate">Auto-update</h4>
+                                    <p data-translate="settings.advanced.autoupdate.desc">Automatically check for
+                                        updates</p>
+                                </div>
+                                <div class="setting-control">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="autoUpdate" checked>
+                                        <label class="form-check-label" for="autoUpdate"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reset Settings -->
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4 data-translate="settings.advanced.reset">Reset to Defaults</h4>
+                                    <p data-translate="settings.advanced.reset.desc">Reset all settings to their default
+                                        values</p>
+                                </div>
+                                <div class="setting-control">
+                                    <button class="btn btn-outline-warning btn-sm" id="resetSettingsBtn">
+                                        <i class="bi bi-arrow-clockwise"></i> <span
+                                            data-translate="settings.advanced.reset.btn">Reset Settings</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer component placeholder -->
+    <div data-component="footer"></div>
+
+    <!-- Critical JavaScript for FOUC prevention -->
+    <script src="/js/init.js"></script>
+
+    <!-- Core JavaScript files -->
+    <script src="/js/components.js"></script>
+    <script src="/js/translations.js"></script>
+    <script src="/js/notifications.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/settings.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

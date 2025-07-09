@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Critical CSS (inline para evitar flash) -->
+    <style id="critical-css">
+        :root {
+            --sidebar-width: 240px;
+            /* Light Theme Colors */
+            --bg-color: #f6f6f8;
+            --sidebar-bg: #edeef2;
+            --card-bg: #ffffff;
+            --text-primary: #202020;
+            --text-secondary: #5a5a5a;
+            --accent-color: #555555;
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --bg-color: #252525;
+            --sidebar-bg: #2d2d2d;
+            --card-bg: #303030;
+            --text-primary: #e5e5e5;
+            --text-secondary: #b3b3b3;
+            --accent-color: #888888;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hide elements during loading to prevent flash */
+        .sidebar,
+        .main-content {
+            visibility: hidden;
+        }
+
+        /* Show elements after component loading */
+        .components-loaded .sidebar,
+        .components-loaded .main-content {
+            visibility: visible;
+        }
+
+        /* Sidebar collapsed state */
+        .sidebar-collapsed {
+            --sidebar-width: 80px;
+        }
+
+        .sidebar-collapsed .title,
+        .sidebar-collapsed .nav-link span {
+            display: none;
+        }
+
+        body {
+            background-color: var(--sidebar-bg);
+            color: var(--text-primary);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width) !important;
+            background-color: var(--bg-color);
+        }
+
+        .footer {
+            margin-left: var(--sidebar-width) !important;
+            background-color: var(--sidebar-bg);
+            color: var(--text-primary);
+        }
+    </style>
+
+    <!-- Inicialização crítica (inline para evitar flash) -->
+    <script>
+        // App initialization system
+        (function () {
+            // Apply saved sidebar width immediately to prevent flash
+            const savedWidth = localStorage.getItem("sidebar-width");
+            if (savedWidth) {
+                const width = parseInt(savedWidth);
+                document.documentElement.style.setProperty("--sidebar-width", width + "px");
+
+                if (width <= 140) {
+                    document.documentElement.classList.add("sidebar-collapsed");
+                }
+            }
+
+            // Apply saved theme immediately to prevent flash
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                document.documentElement.setAttribute("data-theme", savedTheme);
+            }
+
+            // Mark as components loaded after initialization
+            document.documentElement.classList.add("components-loaded");
+        })();
+    </script>
+
+    <!-- External stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/global.css">
+    <!-- Specific page CSS will be added here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Page specific title will be set here -->
+    <title>Leon</title>
+</head>
+
+<body>
+    <!-- Sidebar component placeholder -->
+    <div data-component="sidebar"></div>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <!-- Page specific content will go here -->
+    </main>
+
+    <!-- Footer component placeholder -->
+    <div data-component="footer"></div>
+
+    <!-- Core JavaScript files -->
+    <script src="/js/components.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <!-- Page specific JS files will be added here -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

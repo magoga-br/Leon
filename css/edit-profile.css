@@ -1,36 +1,414 @@
+/* ==========================================================================
+   LEON - Edit Profile Page Styles
+   ========================================================================== */
+
 @import url("/css/global.css");
 
-
-.card-title{
-    color: var(--branco);
+/* ==========================================================================
+   Edit Profile Form Styles
+   ========================================================================== */
+.edit-profile-form {
+  margin-top: 2rem;
 }
 
-/* Style form elements for the dark theme */
-.edit-profile-form .form-control,
-.edit-profile-form .form-control:focus {
-  background-color: #2d2d2d;
-  color: var(--branco);
-  border: 1px solid #444;
-  box-shadow: none;
-  /* Remove default focus shadow */
+.edit-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  height: 100%;
 }
 
-.edit-profile-form .form-control::placeholder {
-  color: var(--muted);
+.edit-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
-.edit-profile-form .input-group-text {
-  background-color: #333;
-  border: 1px solid #444;
-  color: var(--muted);
+/* ==========================================================================
+   Card Headers
+   ========================================================================== */
+.edit-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--card-header-bg);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-.edit-profile-form .form-label {
-  color: var(--muted);
+.edit-card-header i {
+  font-size: 1.5rem;
+  color: var(--card-header-text);
+  width: 24px;
+  text-align: center;
+}
+
+.edit-card-header h5 {
+  margin: 0;
+  color: var(--card-header-text);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.edit-card-header p {
+  margin: 0;
+  color: var(--card-header-text-muted);
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Photo Edit Card Specific Styles */
+.photo-edit-card .edit-card-header {
+  background: var(--card-header-bg);
+}
+
+.edit-card-body {
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   Photo Edit Section
+   ========================================================================== */
+.photo-edit-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.photo-edit-section .photo-container {
+  flex-shrink: 0;
+}
+
+.photo-edit-section .photo-container img {
+  width: 120px;
+  height: 120px;
+}
+
+.photo-info h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.photo-info p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
 
-.btn-save-changes{
-  background-color: var(--branco);
-  color: var(--background-color);
-};
+.photo-info small {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Photo Container Component
+   ========================================================================== */
+.photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.photo-container label {
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  transition: var(--transition);
+}
+
+.photo-container label:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.photo-container img {
+  border: solid 1px var(--border-color);
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+/* Photo Container: Edit Overlay */
+.photo-container .edit-photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 1.5rem;
+}
+
+.photo-container label:hover .edit-photo-overlay {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-inner);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(125, 92, 255, 0.25);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Input Groups
+   ========================================================================== */
+.input-group-text {
+  background-color: var(--border-color);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: var(--border-radius-inner) 0 0 var(--border-radius-inner);
+  border-right: none;
+}
+
+.input-group .form-control {
+  border: 2px solid var(--border-color);
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.input-group .form-control:first-child {
+  border-left: 2px solid var(--border-color);
+  border-radius: var(--border-radius-inner) 0 0 var(--border-radius-inner);
+}
+
+.input-group .form-control:last-child {
+  border-right: 2px solid var(--border-color);
+  border-radius: 0 var(--border-radius-inner) var(--border-radius-inner) 0;
+}
+
+.input-group .btn {
+  border: 2px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 var(--border-radius-inner) var(--border-radius-inner) 0;
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: var(--accent-color);
+}
+
+.input-group:focus-within .form-control {
+  border-color: var(--accent-color);
+}
+
+.input-group:focus-within .btn {
+  border-color: var(--accent-color);
+}
+
+/* Password Input Groups */
+.input-group .btn-outline-secondary {
+  color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  background-color: var(--text-primary);
+  border-left: none;
+  padding: 0.75rem 1rem;
+}
+
+.input-group .btn-outline-secondary:hover {
+  color: var(--card-bg);
+  background-color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.input-group .btn-outline-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(125, 92, 255, 0.25);
+  border-color: var(--accent-color);
+  color: var(--card-bg);
+  background-color: var(--text-primary);
+}
+
+.input-group .btn-outline-secondary:active {
+  background-color: var(--text-secondary);
+  border-color: var(--accent-color);
+  color: var(--card-bg);
+}
+
+.input-group .form-control:focus + .btn-outline-secondary {
+  border-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Password Strength Indicators
+   ========================================================================== */
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.password-strength-weak {
+  color: var(--password-weak);
+}
+
+.password-strength-medium {
+  color: var(--password-medium);
+}
+
+.password-strength-strong {
+  color: var(--password-strong);
+}
+
+/* ==========================================================================
+   Action Buttons
+   ========================================================================== */
+.edit-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem 0 1rem;
+}
+
+.btn-save {
+  background: var(--text-primary);
+  border: none;
+  border-radius: var(--border-radius-inner);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  color: var(--card-bg);
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background: var(--text-secondary);
+  color: var(--card-bg);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: none;
+  border-radius: var(--border-radius-inner);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Header Button
+   ========================================================================== */
+.main-header .nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-inner-nav);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--text-primary);
+  color: var(--card-bg);
+}
+
+.main-header .nav-link:hover {
+  background-color: var(--text-secondary);
+  color: var(--card-bg);
+  text-decoration: none;
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.main-header .nav-link i {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Edit Page Mobile */
+  .photo-edit-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .photo-info {
+    order: -1;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .edit-actions .btn {
+    width: 100%;
+  }
+
+  .edit-card-header {
+    padding: 1rem;
+  }
+
+  .edit-card-header i {
+    font-size: 1.25rem;
+  }
+
+  .edit-card-header h5 {
+    font-size: 1rem;
+  }
+
+  .edit-card-body {
+    padding: 1rem;
+  }
+}
