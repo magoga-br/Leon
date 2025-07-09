@@ -45,6 +45,14 @@ class ComponentLoader {
       await this.loadComponent("footer", footerContainer);
     }
 
+    // Load bottom navigation
+    const bottomNavContainer = document.querySelector(
+      '[data-component="bottom-nav"]'
+    );
+    if (bottomNavContainer) {
+      await this.loadComponent("bottom-nav", bottomNavContainer);
+    }
+
     // Set active nav link after components are loaded
     this.setActiveNavLink();
   }
@@ -64,10 +72,21 @@ class ComponentLoader {
     else if (currentPath.includes("profile")) currentPage = "profile";
     else if (currentPath.includes("settings")) currentPage = "settings";
 
-    // Set active class
+    // Set active class for sidebar
     const activeLink = document.querySelector(`[data-page="${currentPage}"]`);
     if (activeLink) {
       activeLink.classList.add("active");
+    }
+
+    // Set active class for bottom navigation
+    const bottomNavItems = document.querySelectorAll(".bottom-nav .nav-item");
+    bottomNavItems.forEach((item) => item.classList.remove("active"));
+
+    const activeBottomNavItem = document.querySelector(
+      `.bottom-nav [data-nav="${currentPage}"]`
+    );
+    if (activeBottomNavItem) {
+      activeBottomNavItem.classList.add("active");
     }
   }
 }
